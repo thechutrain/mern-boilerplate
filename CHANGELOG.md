@@ -15,6 +15,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - setup dev environment using concurrently package
 - basic express server with morgan, bodyParser and one route for testing
 
+
+## [0.0.3] - 2017-07-27
+### Added
+- added Mongo connection with mongoose
+- added a LostItem model
 <!-- ## [Unreleased]
 
 ## [1.0.0] - 2017-06-20
