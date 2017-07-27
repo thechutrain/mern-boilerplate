@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - changelog.md
 - added project tasks on GitHub
 
+## [0.0.2] - 2017-07-27
+### Added
+- setup dev environment using concurrently package
+
 <!-- ## [Unreleased]
 
 ## [1.0.0] - 2017-06-20
