@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [0.0.2] - 2017-07-27
 ### Added
 - setup dev environment using concurrently package
+- basic express server with morgan, bodyParser and one route for testing
 
 <!-- ## [Unreleased]
 
