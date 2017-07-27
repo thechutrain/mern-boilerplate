@@ -8,20 +8,42 @@ class App extends Component {
 	constructor() {
 		super()
 		this.state = {
-			lostItems: [{ name: 'socks', found: false, _id: 12321312 }]
+			lostItems: []
 		}
+		this._alertMe = this._alertMe.bind(this)
+		this.makeNewItem = this.makeNewItem.bind(this)
 	}
 
 	componentDidMount() {
-		console.log('componentDidMount yo!')
 		axios.get('/api/lostitem').then(response => {
-			// console.log(response.data)
+			console.log(response.data)
 			this.setState({
 				lostItems: response.data
 			})
 		})
 	}
+	// _alertMe = () => {
+	// 	alert('I fired')
+	// }
+	_alertMe() {
+		alert('I fired')
+	}
 
+	makeNewItem(name, found) {
+		axios
+			.post('/api/new/lostitem', {
+				name: name,
+				found: found
+			})
+			.then(response => {
+				console.log(response.data)
+				let newLostItems = this.state.lostItems
+				newLostItems.push(response.data)
+				this.setState({
+					lostItems: newLostItems
+				})
+			})
+	}
 	render() {
 		return (
 			<div className="App">
@@ -30,7 +52,9 @@ class App extends Component {
 					My lost items: {JSON.stringify(this.state.lostItems)}
 				</p> */}
 				<DisplayItems lostItems={this.state.lostItems} />
-				<AddItemForm />
+				<AddItemForm _alertMe={this._alertMe} makeNewItem={this.makeNewItem} />
+				{/* <DisplayItems lostItems={this.state.lostItems} />
+				<AddItemForm /> */}
 			</div>
 		)
 	}

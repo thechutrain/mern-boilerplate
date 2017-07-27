@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+// import axios from 'axios'
 
 class AddItemForm extends Component {
 	constructor() {
@@ -28,7 +29,27 @@ class AddItemForm extends Component {
 	}
 	handleSubmit(event) {
 		event.preventDefault()
-		alert('handlesubmit')
+		console.log('handlesubmit called')
+		// console.log(this.state)
+		// axios
+		// 	.post('/api/new/lostitem', {
+		// 		name: this.state.name,
+		// 		found: this.state.found
+		// 	})
+		// 	.then(response => {
+		// 		console.log(response.data)
+		// 		this.props._alertMe()
+		//
+		// 		this.setState({
+		// 			name: '',
+		// 			found: false
+		// 		})
+		// 	})
+		this.props.makeNewItem(this.state.name, this.state.found)
+		this.setState({
+			name: '',
+			found: false
+		})
 	}
 	render() {
 		return (

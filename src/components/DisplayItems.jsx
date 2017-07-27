@@ -14,6 +14,7 @@ const DisplayItems = props => {
 			<ul>
 				{allItems}
 			</ul>
+			{/* {JSON.stringify(props.lostItems)} */}
 		</div>
 	)
 }
