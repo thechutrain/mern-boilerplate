@@ -31,9 +31,30 @@ db.once('open', () => {
 
 /* Express app ROUTING
 * - this is where we set up the API routes for our application
+* - Remember those 4 HTTP verbs ;)
 */
-app.get('/api/data', (req, res) => {
-	res.json({ data: ['a', 'b', 'c'] })
+// app.get('/api/data', (req, res) => {
+// 	res.json({ data: ['a', 'b', 'c'] })
+// })
+
+app.get('/api/lostitem', (req, res) => {
+	res.json({ msg: 'This is for reading all the lost items' })
+})
+
+app.post('/api/new/lostitem', (req, res) => {
+	res.json({ msg: 'This is for creating a new lostitem' })
+})
+
+app.put('/api/lostitem/:id', (req, res) => {
+	res.json({
+		msg: `your trying to UPDATE a lost item of id of: ${req.params.id}`
+	})
+})
+
+app.delete('/api/lostitem/:id', (req, res) => {
+	res.json({
+		msg: `your trying to DELETE a lost item of id of: ${req.params.id}`
+	})
 })
 
 // ==== Starting Server =====
