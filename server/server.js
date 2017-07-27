@@ -15,6 +15,7 @@ app.use(
 /* Mongo Database
 * - this is where we set up our connection to the mongo database
 */
+mongoose.promise = Promise
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI)
 } else {
