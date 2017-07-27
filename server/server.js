@@ -12,15 +12,25 @@ app.use(
 	})
 )
 
-// ==== Connecting to the Mongo DataBase ====
+/* Mongo Database
+* - this is where we set up our connection to the mongo database
+*/
 if (process.env.MONGODB_URI) {
 	mongoose.connect(process.env.MONGODB_URI)
 } else {
-	// local mongo url
-	mongoose.connect('mongodb://localhost/mern-boilerplate')
+	mongoose.connect('mongodb://localhost/mern-boilerplate') // local mongo url
 }
-// ==== ROUTES =====
-// Test that my server is working
+const db = mongoose.connection
+db.on('error', err => {
+	console.log(`There was an error connecting to the database: ${err}`)
+})
+db.once('open', () => {
+	console.log('You have successfully connected to your mongo database')
+})
+
+/* Express app ROUTING
+* - this is where we set up the API routes for our application
+*/
 app.get('/api/data', (req, res) => {
 	res.json({ data: ['a', 'b', 'c'] })
 })
