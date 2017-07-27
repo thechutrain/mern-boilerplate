@@ -2,14 +2,18 @@ import React, { Component } from 'react'
 import './App.css'
 
 class App extends Component {
+	constructor() {
+		super()
+		this.state = {
+			lostItems: [{ name: 'socks', found: false }]
+		}
+	}
 	render() {
 		return (
 			<div className="App">
-				<div className="App-header">
-					<h2>Welcome to React</h2>
-				</div>
-				<p className="App-intro">
-					To get started, edit <code>src/App.js</code> and save to reload.
+				<h1>This is the APP component</h1>
+				<p>
+					My lost items: {JSON.stringify(this.state.lostItems)}
 				</p>
 			</div>
 		)
